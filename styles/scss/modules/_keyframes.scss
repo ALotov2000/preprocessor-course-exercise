@@ -1,0 +1,17 @@
+
+@mixin createKeyframes($primaryColor, $secondaryColor) {
+  @keyframes circleLoader {
+    0% {
+      background-color: $primaryColor;
+    }
+    12.5% {
+      background-color: $secondaryColor;
+    }
+    25% {
+      background-color: $primaryColor;
+    }
+    100% {
+      background-color: $primaryColor;
+    }
+  }
+}

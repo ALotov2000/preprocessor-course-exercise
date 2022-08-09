@@ -1,0 +1,8 @@
+@use "preloader" with (
+  $circleCount: 8,
+  $animationDuration: 1s,
+  $preloaderWidth: 80px,
+  $circleRadius: 10px,
+  $primaryColor: #e1e1e1,
+  $secondaryColor: crimson
+);

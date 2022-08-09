@@ -1,0 +1,40 @@
+@use "sass:math" as math;
+
+@use "modules/mixins" as mixs;
+@use "modules/keyframes" as kf;
+
+@import "modules/variables";
+@import "modules/reset";
+
+.preloader {
+    width: $preloaderWidth;
+    height: $preloaderWidth;
+
+    border-radius: 50%;
+    margin: 50px auto;
+
+    position: relative;
+
+    .circle {
+        width: $circleRadius * 2;
+        height: $circleRadius * 2;
+        background-color: $primaryColor;
+
+        border-radius: inherit;
+
+        position: absolute;
+        top: 0;
+        left: calc(50% - #{$circleRadius});
+
+        transform-origin: 50% math.div($preloaderWidth, 2);
+
+        animation: circleLoader;
+        animation-duration: $animationDuration;
+        animation-timing-function: ease-in;
+        animation-iteration-count: infinite;
+
+        @include mixs.customizeCircles($circleCount, $animationDuration);
+    }
+}
+
+@include kf.createKeyframes($primaryColor, $secondaryColor);

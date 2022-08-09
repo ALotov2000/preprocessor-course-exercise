@@ -1,0 +1,16 @@
+@use "sass:math" as math;
+@mixin customizeCircle($i, $baseAngle, $baseDelay) {
+
+  &:nth-child(#{$i}) {
+    transform: rotate($baseAngle * $i);
+    animation-delay: $baseDelay * $i;
+  }
+}
+
+@mixin customizeCircles($circleCount, $animationDuration) {
+  $baseAngle: math.div(360deg, $circleCount);
+  $baseDelay: math.div($animationDuration, $circleCount);
+  @for $i from 1 to $circleCount {
+    @include customizeCircle($i, $baseAngle, $baseDelay);
+  }
+}
